@@ -1,0 +1,23 @@
+{
+  "name": "projectongs",
+  "version": "1.0.0",
+  "description": "Esse é um projeto construido dentro da semana OmniStack 11 - A criação de uma aplicação em react e react native para juntar ONGs a pessoas interessadas em ajudar.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdwebdesign/projectongs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdwebdesign/projectongs/issues"
+  },
+  "homepage": "https://github.com/pdwebdesign/projectongs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
