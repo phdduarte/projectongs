@@ -22,3 +22,10 @@ npx : como o npm porem ele instala algo externo sem realmente colocar na nossa m
 ```
 npx create-react-app name_project
 ```
+
+Para resetar o servidor sempre que tiver alteracoes
+```
+npm install nodemon -D
+```
+Colocamos com o -D para ele salvar como uma dependencia de dev
+Ou seja so precisamos dele no dev
