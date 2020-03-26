@@ -1,8 +1,17 @@
 const  express = require('express')
+const crypto = require('crypto')
+
+const connection = require('./database/connection')
 
 const routes = express.Router()
 
-routes.post('/ongs', (request, response) => {
+routes.get('/ongs', async (request, response) => {
+    const ongs = await connection('ongs').select('*')
+
+    return response.json(ongs)
+})
+
+routes.post('/ongs', async (request, response) => {
     //const params = request.query // acessar vindo da barra na rota exemplo ?name= Pedro
     //const params = request.params
     const { name, email, whatsapp, city, uf } = request.body
@@ -15,7 +24,16 @@ routes.post('/ongs', (request, response) => {
     console.log(city)
     console.log(uf)
 
-    return response.json() 
+    await connection('ongs').insert({
+        id,
+        name,
+        email,
+        whatsapp,
+        city,
+        uf,
+    }) 
+
+    return response.json({ id }) 
 })
 
 routes.post('/', (request, response) => {
