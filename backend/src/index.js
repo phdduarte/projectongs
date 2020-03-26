@@ -1,9 +1,12 @@
 const  express = require('express')
+const routes = require('./routes')
 
 const app = express()
 
-app.use(express.json( )) // Dizer para a aplicacao que iremos receber no formato JSON
+app.use(express.json()) // Dizer para a aplicacao que iremos receber no formato JSON
 //deve vim antes das rotas para avisar ja para o app como iremos recever as requisicoes 
+app.use(routes)
+
 
 /* 
 
@@ -31,25 +34,21 @@ DELETE: Deletar uma informacao no back-end
  * 
  */
 
+/**
+ * SQL: MySQL, SQLite, PostgreSQL, ORacle, Microsoft SQL Server
+ * NoSQL : MongoDB, COuchDB, etc 
+ */
 
-app.post('/users', (request, response) => {
-    //const params = request.query // acessar vindo da barra na rota exemplo ?name= Pedro
-    //const params = request.params
-    const params = request.body
-
-    console.log(params)
-
-    return response.json({
-        event : "Resposta",
-        name : "Pedro" 
-    }) 
-} )
-
-app.get('/', (request, response) => {
-    return response.json({
-        event : "Resposta",
-        name : "Pedro" 
-    }) 
-} )
+/**
+ *  Driver: SELECT * FROM users
+ *  Query Builder: table('users').select('*').where() -> O query builder que vamos usar é o knex.js 
+ *  para instalar ele é so usar npm install knex 
+ *  e instalar o banco de acordo com o banco que vamos usar, no caso aqui é o sqlite3
+ *  para isso é so da o comando:
+ *  npm install sqlite3
+ * 
+ *  Para iniciar a configuracao do banco fazemos:
+ *  npx knex init
+ */
 
 app.listen(3333)

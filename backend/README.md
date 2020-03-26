@@ -29,3 +29,18 @@ npm install nodemon -D
 ```
 Colocamos com o -D para ele salvar como uma dependencia de dev
 Ou seja so precisamos dele no dev
+
+Para instalar o Query Builder que vamo usar o KNEX.js
+```
+npm install knex
+
+```
+Depois é necessário instalar o banco que iremos utilizar nesse caso o sqlite3
+```
+npm install sqlite3
+```
+
+Para iniciar a configuração do banco passamos o comando:
+```
+npx knex init
+```
