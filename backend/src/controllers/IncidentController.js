@@ -2,7 +2,19 @@ const connection = require('../database/connection')
 
 module.exports = {
     async index(request, response) {
-        const incidents = await connection('incidents').select('*')
+        const { page = 1} = request.query // busca dentro do parametro passado na url=?nuemro_da_pagina
+
+        const [count] = await connection('incidents') // o uso de [] em torno do count é para pegar apenas um valor
+            .count()
+
+        console.log(count)    
+
+        const incidents = await connection('incidents')
+            .limit(5) // limitar a busca no banco de dados para fazer paginacao
+            .offset((page - 1) * 5) // para pegar 5 em 5 os regristros pulando a primeira pagina por isso o page - 1
+            .select('*')
+
+        response.header('X-Total-Count', count['count(*)']) // cabecalho que retorna dentro do header da resposta a paginacao    
 
         return response.json(incidents)
     },
