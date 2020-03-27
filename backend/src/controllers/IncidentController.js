@@ -10,9 +10,18 @@ module.exports = {
         console.log(count)    
 
         const incidents = await connection('incidents')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id') // apenas os incidentes que tenham o id da ong
             .limit(5) // limitar a busca no banco de dados para fazer paginacao
             .offset((page - 1) * 5) // para pegar 5 em 5 os regristros pulando a primeira pagina por isso o page - 1
-            .select('*')
+            .select([
+                'incidents.*', 
+                'ongs.name', 
+                'ongs.email', 
+                'ongs.whatsapp', 
+                'ongs.city' , 
+                'ongs.uf'
+            ]) // busca da tabela incidentes todos porem da 
+            // tabela ongs ele busca cada um dos elementos, porque o id tem o mesmo nome para incidentes e para ongs 
 
         response.header('X-Total-Count', count['count(*)']) // cabecalho que retorna dentro do header da resposta a paginacao    
 
