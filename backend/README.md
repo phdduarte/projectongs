@@ -44,3 +44,9 @@ Para iniciar a configuração do banco passamos o comando:
 ```
 npx knex init
 ```
+
+instalar o modo de seguranca CORS 
+determinando quem pode acessar nossa aplicacao
+```
+npm install cors
+```

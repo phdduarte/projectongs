@@ -1,7 +1,14 @@
-const  express = require('express')
+const express = require('express')
+const cors = require('cors')
 const routes = require('./routes')
 
 const app = express()
+
+app.use(cors()) // permitindo todas as aplicacoes acessar
+// quando tiver em producao colocar qual a url da nossa aplicacao
+// app.use(cors({
+//     origin: 'https://www.pdwebdesign.com.br' 
+// }))
 
 app.use(express.json()) // Dizer para a aplicacao que iremos receber no formato JSON
 //deve vim antes das rotas para avisar ja para o app como iremos recever as requisicoes 
