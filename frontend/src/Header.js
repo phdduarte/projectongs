@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react' // importando alem do react , o useState para controle dos estados
 
-export default function Header(props) { // recebe como parametro as propriedades - em vez de trazer todas 
+export default function Header({ children }) { // recebe como parametro as propriedades - em vez de trazer todas 
     // pode colocar as que for utilizar dentro de {}
     return (
         <header>
             {/* Utilizando a propriedade titulo que veio como um parametro */}
-            <h1>{props.title}</h1> 
+            <h1>{children}</h1> 
         </header>
     )
 }
