@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import api from '../../services/api'
@@ -19,6 +19,12 @@ export default function Register() {
     const [whatsapp, setWhatsapp] = useState('')
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
+
+    /**
+     * Usamos o useHistory quando nao podemos utizar a rota do JS.
+     * ele foi colocado depois que o item é cadastrado
+     */
+    const history = useHistory()
 
     /**
      * Function responsavel por fazer o cadastro do usuario
@@ -41,6 +47,8 @@ export default function Register() {
             const response = await api.post('ongs', data) // o await espera essa api.post retornar a resosta,
             // mas sempre que colocar await tem que lembrar de colcoar async na funcao no caso handleRegister
             alert(`Seu id de acesso ${response.data.id}`)
+
+            history.push('/')
         } catch (err) {
             alert('Erro no cadastro, tente novamente.')
         }
