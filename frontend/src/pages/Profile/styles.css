@@ -39,6 +39,11 @@
     border-color: #999;
 }
 
+.profile-container h1 {
+    margin-top: 80px;
+    margin-bottom: 24px;
+}
+
 .profile-container ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -72,3 +77,13 @@
     margin-bottom: 16px;
     color: #41414d;
 }    
+
+.profile-container ul li p + strong{
+    margin-top: 32px;
+}
+
+.profile-container ul li p {
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+}
