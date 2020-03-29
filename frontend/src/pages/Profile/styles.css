@@ -38,3 +38,37 @@
 .profile-container header button:hover {
     border-color: #999;
 }
+
+.profile-container ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; 
+    /* grid-gap; esta absoleta */
+    list-style: none;
+}
+
+.profile-container ul li {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.profile-container ul li button{
+    background: #fff;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    border: 0;
+    transition: opacity 0.2s;
+}
+
+.profile-container ul  li button:hover{
+    opacity: 0.8;
+}
+
+.profile-container ul li strong {
+    display: block;
+    margin-bottom: 16px;
+    color: #41414d;
+}    
