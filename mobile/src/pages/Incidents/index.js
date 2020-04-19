@@ -21,14 +21,15 @@ export default function Incidents() {
                 <Text style={styles.headerText}>
                     Total de <Text style={styles.headerTextBold}>0 casos</Text>.
                 </Text>
-            </View>   
+            </View> 
+
             <Text style={styles.title}>Bem-vindo!</Text>
             <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia.</Text>
 
             <FlatList 
+                data={[1, 2, 3, 4, 5]}
                 style={styles.incidentList}
-                data={[1,2,3]}
-                keyExtractor={incidents => String(incident)}
+                keyExtractor={incident => String(incident)}
                 showsVerticalScrollIndicator={false}
                 renderItem={() => (
                     <View style={styles.incident}>
