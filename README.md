@@ -13,3 +13,8 @@ Pacote para a chamada da api do node
 ```
 npm install axios
 ```
+
+Pacote para escrever o valor em formato de R$
+```
+npm install intl
+```
