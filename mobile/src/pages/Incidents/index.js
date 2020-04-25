@@ -12,6 +12,8 @@ import styles from './styles'
 export default function Incidents() {
     const [incidents, setIncidents] = useState([])
     const [total, setTotal] = useState(0)
+    const [page, setPage] = useState(1)
+    const [loading, setLoading] = useState(false) // criando estado para paginacao
 
     const navigation = useNavigation()
 
@@ -20,10 +22,29 @@ export default function Incidents() {
     }
 
     async function loadIncidents() {
-        const response = await api.get('incidents') 
+        if (loading) { // se ele ja tiver carregando ele nao precisar fazer novamente.
+            return
+        }
 
-        setIncidents(response.data)
+        if (total > 0 && incidents.length === total) { // se existir ao menos um caso 
+            return // e ele for o numero total de casos nao precisa busca mais informacoes
+        }
+
+        setLoading(true)
+
+        // const response = await api.get(`incidents?page=${page}`) 
+        // uma forma de passar dentro da url mas se nao quiser sujar a url pode fazer: 
+        const response = await api.get('incidents', {
+            params: { page }
+        }) 
+
+        // setIncidents(response.data) assim ele troca os valores por novos
+        setIncidents([ ... incidents, ... response.data]) // essa é a forma de anexar dois vetores dentro de um vetor
+        // copia todos os valores dentro de 
+        // incidents e dentro de response.data 
         setTotal(response.headers['x-total-count'])
+        setPage(page + 1 )
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -47,6 +68,11 @@ export default function Incidents() {
                 style={styles.incidentList}
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
+                onEndReached={loadIncidents} 
+                // onEndReached é disparada de forma automatica qunado o usuario chega no final da lista
+                onEndReachedThreshold={0.2}
+                // onEndReachedThreshold ela fala quantos % o usuario precisa esta no final da lista para ela 
+                // carregar novos itens
                 renderItem={({ item: incident }) => (
                     <View style={styles.incident}>
                         <Text style={styles.incidentProperty}>ONG:</Text>
