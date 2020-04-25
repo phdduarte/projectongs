@@ -13,7 +13,7 @@ export default function Detail() {
     const route = useRoute()
 
     const incident = route.params.incident; // pegando todos os parametros da rota incident 
-    const message = 'Ola APAD'
+    const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}"`
 
     function navigateBack() {
         navigation.goBack() // funcao de dentro do navigation para voltar a tela
@@ -21,8 +21,8 @@ export default function Detail() {
 
     function sendMail() {
         MailComposer.composeAsync({
-            subject: 'Herói do caso: Cadelinha atropelada',
-            recipients: ['pedrohlduarte@gmail.com'],
+            subject: `Herói do caso: ${incident.title}`,
+            recipients: [incident.email],
             body: message,
         })
     }
