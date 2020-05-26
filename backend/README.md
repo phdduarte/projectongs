@@ -50,3 +50,8 @@ determinando quem pode acessar nossa aplicacao
 ```
 npm install cors
 ```
+
+Biblioteca para fazer validações
+```
+npm install celebrate
+```

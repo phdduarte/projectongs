@@ -18,3 +18,8 @@ Pacote para escrever o valor em formato de R$
 ```
 npm install intl
 ```
+
+Biblioteca para fazer validações
+```
+npm install celebrate
+```
