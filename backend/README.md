@@ -52,6 +52,7 @@ npm install cors
 ```
 
 Biblioteca para fazer validações
+[https://github.com/arb/celebrate](https://github.com/arb/celebrate)
 ```
 npm install celebrate
 ```
