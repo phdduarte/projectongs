@@ -34,11 +34,31 @@ routes.post('/ongs', celebrate({
 // É necessário que o celebrate venha antes da criacao da ong
 // porque ele segue uma ordem, primeiro valida e depois cria. 
 
-routes.get('/profile', ProfileController.index)
+routes.get('/profile', celebrate({
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required(),
+    }).unknown(),
+}),ProfileController.index);
 
-routes.get('/incidents', IncidentController.index)
+routes.get('/incidents', celebrate({
+    [Segments.QUERY]: Joi.object().keys({
+        page: Joi.number(),
+    })
+}),IncidentController.index)
+
+
 routes.post('/incidents', IncidentController.create)
-routes.delete('/incidents/:id', IncidentController.delete)
+/**
+ * Para criar essa validacao precisa juntar
+ * HEADERS authorization e do body com o corpo do incidents
+ */
+
+
+routes.delete('/incidents/:id', celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.number().required(),
+    })
+}), IncidentController.delete)
 
 
 module.exports = routes // exportar a variavel routes para fora do arquivo
