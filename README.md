@@ -23,3 +23,10 @@ Biblioteca para fazer validações
 ```
 npm install celebrate
 ```
+
+framework de teste utilizado na aplicacao
+```
+npm install jest
+```
+
+Tempo: 21:19

@@ -56,3 +56,13 @@ Biblioteca para fazer validações
 ```
 npm install celebrate
 ```
+
+framework de teste utilizado na aplicacao
+```
+npm install jest
+```
+
+Para começar o jest
+```
+npx jest --init
+```
