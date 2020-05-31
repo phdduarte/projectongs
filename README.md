@@ -28,5 +28,7 @@ framework de teste utilizado na aplicacao
 ```
 npm install jest
 ```
+[https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
+[https://jestjs.io/docs/en/getting-started](https://jestjs.io/docs/en/getting-started)
 
-Tempo: 21:19
+Tempo: 34:05
