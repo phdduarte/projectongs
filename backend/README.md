@@ -66,3 +66,8 @@ Para começar o jest
 ```
 npx jest --init
 ```
+Configurando ambiente para teste
+Para saber qual ambiente estamos:
+```
+npm install cross-env
+```
