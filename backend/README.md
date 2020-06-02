@@ -84,3 +84,15 @@ Recuperando a variavel de teste no banco de dados
 ```
 const config = process.env.NODE_ENV === 'test' ? configuration.test : configuration.development;
 ```
+
+Biblioteca para fazermos as chamadas na api porém atráves dos testes de integração.
+
+Supertest
+
+Vai fazer requisições http e vai trazer algumas validações a mais no retorno da api.
+
+[https://github.com/visionmedia/supertest](https://github.com/visionmedia/supertest)
+
+```
+npm install supertest
+```
