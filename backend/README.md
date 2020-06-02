@@ -71,3 +71,16 @@ Para saber qual ambiente estamos:
 ```
 npm install cross-env
 ```
+
+Gerenciando varáveis ambiente no NODEJS
+[https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/)
+
+Recuperando a variavel global
+```
+const config = process.env.NODE_ENV
+```
+
+Recuperando a variavel de teste no banco de dados
+```
+const config = process.env.NODE_ENV === 'test' ? configuration.test : configuration.development;
+```
