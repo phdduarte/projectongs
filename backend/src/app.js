@@ -65,4 +65,4 @@ DELETE: Deletar uma informacao no back-end
  *  npx knex init
  */
 
-app.listen(3333)
+module.exports = app;
