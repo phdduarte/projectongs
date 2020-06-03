@@ -31,4 +31,4 @@ npm install jest
 [https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
 [https://jestjs.io/docs/en/getting-started](https://jestjs.io/docs/en/getting-started)
 
-Tempo: 37:42
+Tempo: 41:43

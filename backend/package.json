@@ -4,7 +4,7 @@
   "description": "Esse é um projeto construido dentro da semana OmniStack 11 - A criação de uma aplicação em react e react native para juntar ONGs a pessoas interessadas em ajudar.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/app.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "repository": {
