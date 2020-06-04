@@ -18,6 +18,7 @@ describe('ONG', () => {
 	            uf: "MG"    
             });   
 
-        console.log(response.body);    
+        expect(response.body).toHaveProperty('id'); // tenha uma propriedade chamada id
+        expect(response.body.id).toHaveLength(8); // tenha 8 caracteres 
     });
 });
