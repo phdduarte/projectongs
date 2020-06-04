@@ -6,6 +6,10 @@ describe('ONG', () => {
     beforeEach(async () => {
         await connection.migrate.latest();
     })
+
+    afterAll(async () => {
+        await connection.destroy(); // destruir a coneção depois de finalizar o teste
+    }); // executar depois de todos os testes
     
     it('should be able to create a new ONG', async () => {
         const response = await request(app)
